@@ -16,17 +16,34 @@ Ensure you have the following installed before running the script:
 
 #### **Step 1: Clone or Download the Repository**
 ```bash
-git clone https://github.com/<your-repo-name>/youtube-data-fetcher.git
+git clone https://github.com/Shaheen1906/youtube-data-fetcher.git
 cd youtube-data-fetcher
 ```
+#### **Step 2: Create Virtual Enviornment **
+1. Use `venv` to create virutal environment:  
+```bash
+python -m venv venv_name(venv)
+```
+2. Activate:
+```bash
+.\venv\Scripts\activate
+```
 
-#### **Step 2: Install Dependencies**
+#### **Step 3: Install Dependencies**
+### **Dependencies**
+The script uses the following Python libraries:
+1. **`google-api-python-client`**: For interacting with the YouTube Data API.  
+2. **`pandas`**: For data manipulation and exporting to Excel.  
+3. **`openpyxl`**: For working with Excel files.  
+4. **`logging`**: For debugging and error handling. 
+5. **`isodate`**: Convert ISO 8601 duration to HH:MM:SS format.
+
 Use `pip` to install the required libraries:  
 ```bash
 pip install -r requirements.txt
 ```
 
-#### **Step 3: Enable the YouTube Data API**
+#### **Step 4: Enable the YouTube Data API**
 1. Visit the [Google Cloud Console](https://console.cloud.google.com/).  
 2. Create a new project or select an existing project.  
 3. Enable the **YouTube Data API v3** for your project.  
@@ -34,13 +51,11 @@ pip install -r requirements.txt
    - Go to **Credentials** > **Create Credentials** > **API Key**.
    - Copy the API key for use in the script.
 
-#### **Step 4: Configure the Script**
+#### **Step 5: Configure the Script**
 Open the `config.py` file (if provided) or locate the `API_KEY` placeholder in the script and replace it with your API key:
 ```python
 API_KEY = "YOUR_API_KEY_HERE"
 ```
-
----
 
 ### **Usage Instructions**
 
@@ -52,59 +67,23 @@ python youtube_fetcher.py
 ```
 
 #### **Input Example**
-When prompted, enter a valid YouTube channel URL with a handle (e.g., `https://www.youtube.com/@channelhandle`).
+When prompted, enter a valid YouTube channel URL with a handle (e.g., `https://www.youtube.com/@ConcreteThinking`).
 
 #### **Output**
-- The script generates an Excel file named `YouTube_Channel_Data.xlsx` in the working directory.
+- The script generates an Excel file named `youtube_data.xlsx` in the working directory.
 - **Sheet 1: Video Data**:
   - Contains video details such as Video ID, Title, Description, Published Date, View Count, Like Count, Comment Count, Duration, and Thumbnail URL.
 - **Sheet 2: Comments Data**:
   - Contains comments and replies for the latest videos, including Video ID, Comment ID, Text, Author Name, Published Date, Like Count, and "Reply to" information.
 
 ---
-
-### **Dependencies**
-The script uses the following Python libraries:
-1. **`google-api-python-client`**: For interacting with the YouTube Data API.  
-2. **`pandas`**: For data manipulation and exporting to Excel.  
-3. **`openpyxl`**: For working with Excel files.  
-4. **`logging`**: For debugging and error handling.  
-
-Install all dependencies using:  
-```bash
-pip install -r requirements.txt
-```
-
----
-
+ 
 ### **Error Handling**
 - If an invalid URL is provided, the script will terminate gracefully with an error message.  
 - Ensure that the YouTube channel URL includes a valid handle (starts with `@`).  
 - API quota exceeded:
   - You might hit YouTube's daily API quota limits. Consider optimizing API usage or requesting a higher quota.  
 
----
 
-### **Future Enhancements**
-- Support for paginated comment fetching to handle more than 100 comments.  
-- Better handling of different channel URL formats (e.g., `channel ID`, `username`).  
-- Caching and retry logic for API requests.  
-
----
-
-### **Troubleshooting**
-If you encounter issues, ensure:
-1. **Correct Python version**: Run `python --version` to verify.  
-2. **API key permissions**: Verify your API key is active and has access to the YouTube Data API.  
-3. **Dependencies installed**: Reinstall using `pip install -r requirements.txt`.  
-
-For further assistance, open an issue in the repository or contact the maintainer.
-
----
-
-### **License**
-This project is licensed under the MIT License.  
-
----
-
-Let me know if you need any additions or further customization!
+### ** Output Files**
+For reference, I have included the output files `youtube_data.xlsx` and `youtube_data1.xlsx`
