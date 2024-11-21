@@ -19,7 +19,7 @@ Ensure you have the following installed before running the script:
 git clone https://github.com/Shaheen1906/youtube-data-fetcher.git
 cd youtube-data-fetcher
 ```
-#### **Step 2: Create Virtual Enviornment **
+#### **Step 2: Create Virtual Enviornment**
 1. Use `venv` to create virutal environment:  
 ```bash
 python -m venv venv_name(venv)
