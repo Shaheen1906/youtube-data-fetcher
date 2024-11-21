@@ -147,10 +147,11 @@ def fetch_comments(youtube, video_id, max_comments=100):
                             "author": reply_snippet["authorDisplayName"],
                             "published_date": reply_snippet["publishedAt"],
                             "like_count": reply_snippet["likeCount"],
-                            "reply_to": {
-                                "id": top_comment_id,
-                                "text": top_comment_text
-                            }
+                            # "reply_to": {
+                            #     "id": top_comment_id,
+                            #     "text": top_comment_text
+                            # }
+                            "reply_to":top_comment_text
                         })
             request = youtube.commentThreads().list_next(request, response)
     except Exception as e:
